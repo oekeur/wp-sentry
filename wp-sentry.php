@@ -33,7 +33,7 @@ if ( ! function_exists( 'add_action' ) ) {
 
 // Make sure the PHP version is at least 7.2
 if ( ! defined( 'PHP_VERSION_ID' ) || PHP_VERSION_ID < 70200 ) {
-	function wp_sentry_php_version_notice() { ?>
+	function wp_sentry_php_version_notice() { //phpcs:ignore Squiz.Functions.MultiLineFunctionDeclaration.ContentAfterBrace?>
 		<div class="error below-h2">
 			<p>
 				<?php printf(

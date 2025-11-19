@@ -15,6 +15,8 @@
     <arg name="extensions" value="php"/>
     <arg name="colors"/>
 
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+
     <rule ref="PSR12"/>
     <rule ref="VariableAnalysis"/>
     <rule ref="PHPCompatibilityWP"/>
@@ -46,6 +48,9 @@
         <!-- Arbitrary, could be left as-is  -->
         <exclude name="PSR1.Methods.CamelCapsMethodName.NotCamelCaps"/>
     </rule>
+    <rule ref="PSR1.Files.SideEffects.">
+        <exclude name="PSR1.Files.SideEffects.FoundWithSymbols"/>
+    </rule>
     <rule ref="PSR1.Classes.ClassDeclaration">
         <!-- TODO: Must-fix; should be trivial, but fix with caution  -->
         <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
@@ -72,9 +77,11 @@
         <exclude name="PSR12.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
         <exclude name="PSR12.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
     </rule>
-    <rule ref="PSR12.Files.FileHeader">
+    <rule ref="PSR12.Files">
         <!-- TODO: Good candidate for easy fix  -->
         <exclude name="PSR12.Files.FileHeader.SpacingAfterBlock"/>
+        <exclude name="PSR12.Files.DeclareStatement.SpaceFoundBeforeDirective"/>
+        <exclude name="PSR12.Files.DeclareStatement.SpaceFoundAfterDirectiveValue"/>
     </rule>
     <rule ref="PSR12.Traits.UseDeclaration">
         <!-- TODO: Good candidate for easy fix  -->
