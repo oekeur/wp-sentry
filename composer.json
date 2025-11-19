@@ -34,6 +34,14 @@
     "composer/installers": "^1.0 || ^2.0",
     "jean85/pretty-package-versions": "^1.5"
   },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "*",
+    "wp-coding-standards/wpcs": "^3.0"
+  },
+  "scripts": {
+    "cs-check": "phpcs --standard=./codesniffer.xml --extensions=php src/",
+    "cs-fix": "phpcbf  --standard=./codesniffer.xml --extensions=php src/"
+  },
   "config": {
     "platform": {
       "php": "7.2.5"
@@ -41,7 +49,8 @@
     "allow-plugins": {
       "php-http/discovery": false,
       "composer/installers": true,
-      "composer/package-versions-deprecated": true
+      "composer/package-versions-deprecated": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
     },
     "sort-packages": true,
     "preferred-install": "dist",
