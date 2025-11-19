@@ -16,6 +16,7 @@
     <arg name="colors"/>
 
     <rule ref="PSR12"/>
+    <rule ref="VariableAnalysis"/>
 
     <!--  tab<>space override  -->
     <rule ref="Generic.WhiteSpace.ScopeIndent">

@@ -35,6 +35,7 @@
     "jean85/pretty-package-versions": "^1.5"
   },
   "require-dev": {
+    "sirbrillig/phpcs-variable-analysis": "^2.13",
     "squizlabs/php_codesniffer": "*",
     "wp-coding-standards/wpcs": "^3.0"
   },
