@@ -202,7 +202,7 @@ final class WP_Sentry_Php_Tracing {
 		$this->set_transaction_name( '/' . $transaction );
 	}
 
-	public function handle_rest_dispatch_request( $dispatch_result, WP_REST_Request $request, string $route, array $handler ) {
+	public function handle_rest_dispatch_request( $dispatch_result, WP_REST_Request $request, string $route, array $handler ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 		preg_match( "#^{$route}#", $transaction = $request->get_route(), $matches, PREG_OFFSET_CAPTURE );
 
 		$matches = array_filter( $matches, function ( $key ) {

@@ -47,21 +47,21 @@ class WP_Sentry_Tracing_Feature_Transients extends WP_Sentry_Tracing_Feature {
 			// @TODO: This _shouldn't_ be necessary, but it is. Investigate.
 			$this->maybe_finish_current_span();
 
-			$transientKey = func_get_args()[2];
+			$transientKey = func_get_args()[2]; // phpcs:ignore PHPCompatibility.FunctionUse.ArgumentFunctionsReportCurrentValue.NeedsInspection
 
 			$this->record_transient_operation( 'put', $transientKey );
 		} elseif ( $this->str_starts_with( $hook_name, 'pre_transient_' ) || $this->str_starts_with( $hook_name, 'pre_site_transient_' ) ) {
 			// @TODO: This _shouldn't_ be necessary, but it is. Investigate.
 			$this->maybe_finish_current_span();
 
-			$transientKey = func_get_args()[2];
+			$transientKey = func_get_args()[2]; // phpcs:ignore PHPCompatibility.FunctionUse.ArgumentFunctionsReportCurrentValue.NeedsInspection
 
 			$this->record_transient_operation( 'get', $transientKey );
 		} elseif ( $this->str_starts_with( $hook_name, 'delete_transient_' ) || $this->str_starts_with( $hook_name, 'delete_site_transient_' ) ) {
 			// @TODO: This _shouldn't_ be necessary, but it is. Investigate.
 			$this->maybe_finish_current_span();
 
-			$transientKey = func_get_args()[1];
+			$transientKey = func_get_args()[1]; // phpcs:ignore PHPCompatibility.FunctionUse.ArgumentFunctionsReportCurrentValue.NeedsInspection
 
 			$this->record_transient_operation( 'remove', $transientKey );
 		} elseif ( $this->str_starts_with( $hook_name, 'transient_' ) || $this->str_starts_with( $hook_name, 'site_transient_' ) ) {
@@ -71,7 +71,7 @@ class WP_Sentry_Tracing_Feature_Transients extends WP_Sentry_Tracing_Feature {
 				$span->setData( [
 					// If the transient does not exist, does not have a value, or has expired, then the return value will be false.
 					// See: https://developer.wordpress.org/reference/functions/get_transient/
-					'cache.hit' => func_get_args()[1] !== false,
+					'cache.hit' => func_get_args()[1] !== false, // phpcs:ignore PHPCompatibility.FunctionUse.ArgumentFunctionsReportCurrentValue.NeedsInspection
 				] );
 				$span->finish();
 			}

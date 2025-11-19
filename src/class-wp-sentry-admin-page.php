@@ -143,7 +143,7 @@ final class WP_Sentry_Admin_Page {
 	 *
 	 * @return \Exception
 	 */
-	private function generateTestException( string $command, array $arg ): ?Exception {
+	private function generateTestException( string $command, array $arg ): ?Exception { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 		try {
 			throw new Exception( 'This is a test exception sent from the Sentry WP PHP integration.' );
 		} catch ( Exception $ex ) {

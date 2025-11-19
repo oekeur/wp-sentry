@@ -189,7 +189,7 @@ final class WP_Sentry_Php_Tracker {
 
 		/** @noinspection IssetArgumentExistenceInspection */
 		$tags = [
-			'wordpress' => $wp_version ?? 'unknown',
+			'wordpress' => $wp_version ?? 'unknown', // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UndefinedVariable
 		];
 
 		if ( function_exists( 'get_bloginfo' ) ) {

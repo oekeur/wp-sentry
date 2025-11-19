@@ -1,0 +1,27 @@
+name: CodeStyle
+on:
+  pull_request:
+    branches:
+      - master
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  CodeSniffer:
+    name: Run PHP_CodeSniffer
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.3'
+          tools: composer:v2, cs2pr
+      - name: Install dependencies
+        run: composer install --no-progress --prefer-dist
+      - name: Run PHP_CodeSniffer
+        run: ./vendor/bin/phpcs --standard=./codesniffer.xml --report=checkstyle . | cs2pr
+
