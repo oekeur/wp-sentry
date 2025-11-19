@@ -41,8 +41,8 @@
     "wp-coding-standards/wpcs": "^3.0"
   },
   "scripts": {
-    "cs-check": "phpcs --standard=./codesniffer.xml --extensions=php src/",
-    "cs-fix": "phpcbf  --standard=./codesniffer.xml --extensions=php src/"
+    "cs-check": "./vendor/bin/phpcs --standard=./codesniffer.xml --extensions=php src/",
+    "cs-fix": "./vendor/bin/phpcbf  --standard=./codesniffer.xml --extensions=php src/"
   },
   "config": {
     "platform": {
