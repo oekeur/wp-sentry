@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<ruleset name="WP-Sentry" namespace="WPSentry\CS\PSR12">
+
+    <description>PSR12 with some exclusions as a baseline</description>
+    <!--
+    This ruleset is based on PSR12 with some exclusions to fit the baseline coding style.
+    It would be ideal to gradually fix the codebase to (better) comply with PSR12 over time.
+    (wherever fixing is used below, understand that as "complying with PSR12")
+    Exclusion are marked as:
+        - Easy fixes
+        - Must-fix issues
+        - Arbitrary / non-essential rules
+    -->
+    <arg name="parallel" value="8"/>
+    <arg name="extensions" value="php"/>
+    <arg name="colors"/>
+
+    <rule ref="PSR12"/>
+
+    <!--  tab<>space override  -->
+    <rule ref="Generic.WhiteSpace.ScopeIndent">
+        <properties>
+            <property name="tabIndent" value="true"/>
+        </properties>
+    </rule>
+
+    <rule ref="Generic.WhiteSpace.DisallowTabIndent">
+        <severity>0</severity>
+    </rule>
+
+    <!--  Generic overrides  -->
+    <rule ref="Generic.WhiteSpace.IncrementDecrementSpacing">
+        <!-- TODO: Good candidate for easy fix  -->
+        <exclude name="Generic.WhiteSpace.IncrementDecrementSpacing.SpaceAfterIncrement"/>
+        <exclude name="Generic.WhiteSpace.IncrementDecrementSpacing.SpaceAfterDecrement"/>
+    </rule>
+    <rule ref="Generic.Files.LineLength">
+        <!-- TODO: Must-fix; should be trivial -->
+        <exclude name="Generic.Files.LineLength.TooLong"/>
+    </rule>
+
+    <!--  PSR1 overrides  -->
+    <rule ref="PSR1.Methods.CamelCapsMethodName">
+        <!-- Arbitrary, could be left as-is  -->
+        <exclude name="PSR1.Methods.CamelCapsMethodName.NotCamelCaps"/>
+    </rule>
+    <rule ref="PSR1.Classes.ClassDeclaration">
+        <!-- TODO: Must-fix; should be trivial, but fix with caution  -->
+        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
+    </rule>
+
+    <!--  PSR2 overrides  -->
+    <rule ref="PSR2.Methods.FunctionCallSignature">
+        <!-- TODO: Good candidate for easy fix  -->
+        <exclude name="PSR2.Methods.FunctionCallSignature.SpaceAfterOpenBracket"/>
+        <exclude name="PSR2.Methods.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+    </rule>
+    <rule ref="PSR2.Classes.ClassDeclaration">
+        <!-- TODO: Good candidate for easy fix  -->
+        <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine"/>
+    </rule>
+
+    <!--  PSR12 overrides  -->
+    <rule ref="PSR12.Classes.ClassInstantiation">
+        <!-- TODO: Good candidate for easy fix  -->
+        <exclude name="PSR12.Classes.ClassInstantiation.MissingParentheses"/>
+    </rule>
+    <rule ref="PSR12.ControlStructures.ControlStructureSpacing">
+        <!-- TODO: Good candidate for easy fix  -->
+        <exclude name="PSR12.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+        <exclude name="PSR12.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+    </rule>
+    <rule ref="PSR12.Files.FileHeader">
+        <!-- TODO: Good candidate for easy fix  -->
+        <exclude name="PSR12.Files.FileHeader.SpacingAfterBlock"/>
+    </rule>
+    <rule ref="PSR12.Traits.UseDeclaration">
+        <!-- TODO: Good candidate for easy fix  -->
+        <exclude name="PSR12.Traits.UseDeclaration.MultipleImport"/>
+    </rule>
+
+    <!--  Squiz overrides  -->
+    <rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing">
+        <!-- TODO: Good candidate for easy fix  -->
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen"/>
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose"/>
+    </rule>
+    <rule ref="Squiz.Functions.MultiLineFunctionDeclaration">
+        <!-- TODO: Good candidate for easy fix  -->
+        <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine"/>
+    </rule>
+    <rule ref="Squiz.Classes.ValidClassName">
+        <!-- Arbitrary, could be left as-is  -->
+        <exclude name="Squiz.Classes.ValidClassName.NotCamelCaps"/>
+    </rule>
+    <rule ref="Squiz.ControlStructures.ControlSignature">
+        <!-- TODO: Good candidate for easy fix  -->
+        <exclude name="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+        <exclude name="Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword"/>
+    </rule>
+
+</ruleset>
