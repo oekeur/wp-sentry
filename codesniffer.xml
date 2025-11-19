@@ -17,6 +17,7 @@
 
     <rule ref="PSR12"/>
     <rule ref="VariableAnalysis"/>
+    <rule ref="PHPCompatibilityWP"/>
 
     <!--  tab<>space override  -->
     <rule ref="Generic.WhiteSpace.ScopeIndent">
